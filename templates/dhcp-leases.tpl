@@ -9,6 +9,7 @@
 <tr>
 	<th>IP</th>
 	<th>MAC</th>
+	<th>Vendor</th>
 	<th>Name</th>
 	<th>Age</th>
 </tr>
@@ -16,6 +17,7 @@
 <tr>
 	<td>{{l.ip}}</td>
 	<td>{{l.ethernet}}</td>
+	<td>{{macs.get_manuf(l.ethernet)}}</td>
 	<td>{{l.hostname}}</td>
 	<td>{{l.start}}</td>
 </tr>
