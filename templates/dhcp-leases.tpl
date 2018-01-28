@@ -12,14 +12,16 @@
 	<th>Vendor</th>
 	<th>Name</th>
 	<th>Age</th>
+	<th>State</th>
 </tr>
 % for l in leases:
-<tr>
+<tr class="{{l.state}}">
 	<td>{{l.ip}}</td>
-	<td>{{l.ethernet}}</td>
-	<td>{{macs.get_manuf(l.ethernet)}}</td>
-	<td>{{l.hostname}}</td>
-	<td>{{l.start}}</td>
+	<td class="mac">{{l.mac}}</td>
+	<td>{{l.vendor}}</td>
+	<td>{{l.name}}</td>
+	<td class="age">{{l.age}}</td>
+	<td>{{l.state}}</td>
 </tr>
 % end
 </table>

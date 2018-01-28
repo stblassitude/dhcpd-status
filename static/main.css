@@ -6,6 +6,18 @@ table, th, td {
     border: 1px solid black;
 }
 
+tr.free td {
+    color: #888;
+}
+
 th, td {
     padding: 4px 8px;
+}
+
+td.mac {
+    font-family: 'Courier New', monospace;
+}
+
+td.age {
+    text-align: right;
 }

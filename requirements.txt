@@ -1,3 +1,5 @@
 bottle
 isc_dhcp_leases
-manuf
+#manuf
+git+https://github.com/coolbho3k/manuf.git
+
