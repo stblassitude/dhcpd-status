@@ -29,7 +29,7 @@ def arpentries():
     arps = subprocess.check_output(["/usr/sbin/arp", "-an"], encoding="UTF-8")
     i = 0
     for line in re.split(r'\n', arps):
-        m = re.match(r'\? \((?P<ip>\d+\.\d+\.\d+\.\d+)\) at (?P<mac>.*?) on.*?', line)
+        m = re.match(r'\? \((?P<ip>\d+\.\d+\.\d+\.\d+)\) at (?P<mac>..:..:..:..:..:..) on.*?', line)
         if not m:
             continue
         print("{}: {}, {}".format(i, m.group('ip'), m.group('mac')))
