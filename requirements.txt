@@ -2,4 +2,5 @@ bottle
 isc_dhcp_leases
 #manuf
 git+https://github.com/coolbho3k/manuf.git
+dnspython
 

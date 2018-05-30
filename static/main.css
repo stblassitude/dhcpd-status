@@ -21,3 +21,11 @@ td.mac {
 td.age {
     text-align: right;
 }
+
+.state-active {
+    background-color: #cfc;
+}
+
+.state-free td {
+    color: #888;
+}
