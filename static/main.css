@@ -22,10 +22,20 @@ td.age {
     text-align: right;
 }
 
-.state-active {
+.state-active .state {
     background-color: #cfc;
 }
 
 .state-free td {
     color: #888;
+}
+
+.ip-1 {
+    background-color: #ccf;
+}
+.ip-2 {
+    background-color: #cff;
+}
+.ip-3 {
+    background-color: #ffc;
 }

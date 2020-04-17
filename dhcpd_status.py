@@ -15,7 +15,7 @@ import subprocess
 
 application = bottle.default_app()
 macParser = MacParser()
-LeaseRow = namedtuple('LeaseRow', 'active age dns end ip mac name start state valid vendor')
+LeaseRow = namedtuple('LeaseRow', 'active age color dns end ip mac name start state valid vendor')
 ArpRow = namedtuple('ArpRow', 'ip mac')
 
 filters = {
@@ -44,6 +44,12 @@ def reverse(ip):
     except dns.resolver.NXDOMAIN:
         return ''
 
+colors = []
+def color(ip):
+    k = ".".join(ip.split(".")[0:2])
+    if k not in colors:
+        colors.append(k)
+    return colors.index(k)
 
 @route('/')
 @route('/<filter>')
@@ -64,7 +70,7 @@ def dhcpLeases(filter='active'):
         if filters[filter](l):
             leaserow = LeaseRow(active=l.active, age=age, dns=name, end=l.end, ip=l.ip, mac=l.ethernet,
                     name=l.hostname, start=l.start, state=state, valid=l.valid,
-                    vendor=vendor)
+                    vendor=vendor, color=color(l.ip))
             entries[leaserow.mac] = leaserow
             rows.append(leaserow)
     for l in arpentries():
@@ -72,7 +78,7 @@ def dhcpLeases(filter='active'):
         vendor = macParser.get_manuf_long(l.mac)
         if l.mac not in entries:
             rows.append(LeaseRow(active=True, age=0, dns=name, end=None, ip=l.ip, mac=l.mac,
-                    name='', start=None, state='arp', valid=True, vendor=vendor))
+                    name='', start=None, state='arp', valid=True, vendor=vendor, color=color(l.ip)))
     return dict(extended=False, leases=sorted(rows, key=lambda l: inet_aton(l.ip)))
 
 @route('/static/<filename>')

@@ -18,13 +18,13 @@
 % end
 </tr>
 % for l in leases:
-<tr class="state-{{l.state}}">
+<tr class="state-{{l.state}} ip-{{l.color}}">
 	<td>{{l.ip}}<br/>{{l.dns}}</td>
 	<td class="mac">{{l.mac}}</td>
 	<td>{{l.vendor}}</td>
 	<td>{{l.name}}</td>
 	<td class="age">{{l.age}}</td>
-	<td>{{l.state}}</td>
+	<td class="state">{{l.state}}</td>
 % if extended:
 	<td>{{l.active}}<br />{{l.valid}}</td>
 	<td>{{l.start}}<br />{{l.end}}</td>
