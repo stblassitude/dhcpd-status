@@ -46,7 +46,7 @@ def reverse(ip):
 
 colors = []
 def color(ip):
-    k = ".".join(ip.split(".")[0:2])
+    k = ".".join(ip.split(".")[0:3])
     if k not in colors:
         colors.append(k)
     return colors.index(k)
