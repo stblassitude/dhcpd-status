@@ -41,7 +41,7 @@ def reverse(ip):
     try:
         answer = dns.resolver.query(dns.reversename.from_address(ip), 'PTR')
         return answer[0]
-    except dns.resolver.NXDOMAIN:
+    except (dns.resolver.NXDOMAIN, dns.resolver.NoNameservers):
         return ''
 
 colors = []
